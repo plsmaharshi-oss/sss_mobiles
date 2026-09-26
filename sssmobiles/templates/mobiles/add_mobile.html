@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Add Mobile - SSS Mobiles</title>
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #f5f5f5;
+        }
+
+        header {
+            background: #111;
+            color: white;
+            padding: 25px;
+            text-align: center;
+        }
+
+        header h1 {
+            margin: 0;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 700px;
+            margin: 40px auto;
+        }
+
+        .form-card {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 3px 12px rgba(0,0,0,0.15);
+        }
+
+        .form-card h2 {
+            text-align: center;
+            margin-bottom: 25px;
+        }
+
+        .form-group {
+            margin-bottom: 18px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 7px;
+            font-weight: bold;
+        }
+
+        input,
+        select,
+        textarea {
+
+            width: 100%;
+
+            padding: 12px;
+
+            border: 1px solid #ccc;
+
+            border-radius: 7px;
+
+            font-size: 15px;
+        }
+
+        textarea {
+
+            height: 100px;
+
+            resize: vertical;
+        }
+
+        button {
+
+            width: 100%;
+
+            padding: 14px;
+
+            background: #111;
+
+            color: white;
+
+            border: none;
+
+            border-radius: 7px;
+
+            font-size: 17px;
+
+            cursor: pointer;
+        }
+
+        button:hover {
+
+            background: #333;
+        }
+
+        .back {
+
+            display: block;
+
+            text-align: center;
+
+            margin-top: 20px;
+
+            color: #111;
+
+            text-decoration: none;
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<header>
+
+    <h1>SSS Mobiles</h1>
+
+    <p>Add Mobile</p>
+
+</header>
+
+
+<div class="container">
+
+    <div class="form-card">
+
+        <h2>Add New Mobile</h2>
+
+
+        <form method="POST"
+              enctype="multipart/form-data">
+
+            {% csrf_token %}
+
+            {% if form.errors %}
+                <div class="form-errors">
+                    {% for field in form %}{% for error in field.errors %}<p>{{ field.label }}: {{ error }}</p>{% endfor %}{% endfor %}
+                </div>
+            {% endif %}
+
+
+            <div class="form-group">
+
+                <label>Brand</label>
+
+                <input
+                    type="text"
+                    name="brand"
+                    placeholder="Example: OnePlus"
+                    required>
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label>Model Name</label>
+
+                <input
+                    type="text"
+                    name="model_name"
+                    placeholder="Example: OnePlus 11"
+                    required>
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label>RAM</label>
+
+                <input
+                    type="text"
+                    name="ram"
+                    placeholder="Example: 16GB"
+                    required>
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label>Storage</label>
+
+                <input
+                    type="text"
+                    name="storage"
+                    placeholder="Example: 256GB"
+                    required>
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label>Price</label>
+
+                <input
+                    type="number"
+                    name="price"
+                    placeholder="Example: 30000"
+                    step="0.01"
+                    required>
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label>Condition</label>
+
+                <select name="condition" required>
+
+                    <option value="">
+                        Select Condition
+                    </option>
+
+                    <option value="New">
+                        New
+                    </option>
+
+                    <option value="Like New">
+                        Like New
+                    </option>
+
+                    <option value="Good">
+                        Good
+                    </option>
+
+                    <option value="Average">
+                        Average
+                    </option>
+
+                    <option value="Used">
+                        Used
+                    </option>
+
+                </select>
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label>Description</label>
+
+                <textarea
+                    name="description"
+                    placeholder="Enter mobile details...">
+                </textarea>
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label>Mobile Image</label>
+
+                <input
+                    type="file"
+                    name="image"
+                    accept="image/*">
+
+            </div>
+
+
+            <button type="submit">
+                Add Mobile
+            </button>
+
+
+        </form>
+
+
+        <a href="/" class="back">
+            ← Back to Mobiles
+        </a>
+
+    </div>
+
+</div>
+
+
+</body>
+
+</html>

@@ -1,0 +1,11 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>{% block title %}SSS Mobiles{% endblock %}</title>
+<style>
+body{margin:0;font:16px Arial;color:#13243d;background:#f5f7fb}.nav{padding:18px 6%;background:#fff;display:flex;justify-content:space-between}.nav a,.btn{padding:10px 14px;text-decoration:none;border:0;border-radius:8px;color:#13243d;font-weight:bold}.primary,.btn-primary{background:#3563e9!important;color:white!important}.page{width:90%;max-width:1100px;margin:auto;padding:42px 0}.heading{font-size:38px;margin:8px 0}.sub{color:#65738a}.panel{background:#fff;border:1px solid #e2e8f0;border-radius:16px;padding:28px;box-shadow:0 12px 35px #10233f12}.flash{padding:12px;margin-bottom:14px;border-radius:8px;background:#e8faef}.error{background:#fff0f2}input,select,textarea{width:100%;padding:12px;border:1px solid #d6deea;border-radius:8px;box-sizing:border-box}.fade{animation:f .5s}@keyframes f{from{opacity:0;transform:translateY(12px)}to{opacity:1}}
+</style>{% block css %}{% endblock %}</head>
+<body><nav class="nav"><a href="{% url 'home' %}">SSS MOBILES</a><span>
+<a href="{% url 'home' %}">Inventory</a><a href="{% url 'import_mobiles' %}">Import Excel</a>
+<a class="primary" href="{% url 'add_mobile' %}">+ Add</a><form method="post" action="{% url 'logout' %}" style="display:inline">{% csrf_token %}<button style="background:none;border:0;cursor:pointer">Logout</button></form></span></nav>
+<main class="page">{% for message in messages %}<div class="flash {{ message.tags }}">{{ message }}</div>{% endfor %}
+{% block content %}{% endblock %}</main></body></html>

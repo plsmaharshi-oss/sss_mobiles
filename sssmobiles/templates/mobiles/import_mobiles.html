@@ -1,0 +1,10 @@
+{% extends 'mobiles/base.html' %}
+{% block content %}
+<section class="panel fade"><p>EXCEL IMPORT</p><h1 class="heading">Review before you publish.</h1>
+<p class="sub">Upload one .xlsx workbook. Nothing is added until you approve the review.</p>
+<form method="post" enctype="multipart/form-data"><br>{% csrf_token %}
+<label>Excel workbook (.xlsx)</label><input type="file" name="excel_file" accept=".xlsx" required><br><br>
+<button class="btn btn-primary">Create review</button></form>
+<hr><strong>Required columns</strong><p class="sub">brand, model_name, ram, storage, price, condition</p>
+<p class="sub">Optional: description. Images are not imported; add them later from Edit.</p></section>
+{% endblock %}

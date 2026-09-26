@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Login | SSS Mobiles</title>
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            font-family: Arial, sans-serif;
+
+            background:
+                radial-gradient(
+                    circle at top left,
+                    rgba(255, 102, 0, 0.20),
+                    transparent 30%
+                ),
+                linear-gradient(
+                    135deg,
+                    #080808,
+                    #171717
+                );
+        }
+
+        /* MAIN LOGIN BOX */
+
+        .login-container {
+            width: 92%;
+            max-width: 1050px;
+
+            min-height: 600px;
+
+            display: grid;
+            grid-template-columns: 1.1fr 0.9fr;
+
+            overflow: hidden;
+
+            border-radius: 24px;
+
+            background: #ffffff;
+
+            box-shadow:
+                0 30px 80px rgba(0, 0, 0, 0.55);
+        }
+
+
+        /* LEFT BRAND SECTION */
+
+        .brand-section {
+            padding: 45px;
+
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+
+            text-align: center;
+
+            color: white;
+
+            background:
+                linear-gradient(
+                    145deg,
+                    #050505,
+                    #181818
+                );
+        }
+
+
+        /* SSS MOBILES TITLE */
+
+        .brand-title {
+            margin-bottom: 10px;
+
+            font-size: 28px;
+
+            font-weight: 800;
+
+            letter-spacing: 3px;
+
+            color: white;
+        }
+
+
+        /* LOGO */
+
+        .logo {
+            width: 100%;
+
+            max-width: 500px;
+
+            height: auto;
+
+            display: block;
+
+            margin: 10px auto 0;
+
+            object-fit: contain;
+        }
+
+
+        /* BRAND DESCRIPTION */
+
+        .brand-text {
+            margin: 0 auto;
+
+            max-width: 420px;
+
+            font-size: 17px;
+
+            line-height: 1.6;
+
+            color: #d5d5d5;
+        }
+
+        .brand-text span {
+            color: #ff6600;
+
+            font-weight: bold;
+        }
+
+
+        /* RIGHT LOGIN SECTION */
+
+        .login-section {
+            padding: 50px;
+
+            display: flex;
+
+            justify-content: center;
+
+            align-items: center;
+
+            background: #ffffff;
+        }
+
+
+        /* LOGIN FORM */
+
+        .login-form {
+            width: 100%;
+
+            max-width: 360px;
+        }
+
+
+        .login-form h1 {
+            margin: 0;
+
+            font-size: 34px;
+
+            color: #111111;
+        }
+
+
+        .subtitle {
+            margin-top: 10px;
+
+            margin-bottom: 30px;
+
+            color: #777777;
+
+            line-height: 1.5;
+        }
+
+
+        /* FORM GROUP */
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+
+        .form-group label {
+            display: block;
+
+            margin-bottom: 8px;
+
+            font-size: 14px;
+
+            font-weight: bold;
+
+            color: #333333;
+        }
+
+
+        /* INPUT */
+
+        .form-group input {
+            width: 100%;
+
+            padding: 14px;
+
+            border: 1px solid #d5d5d5;
+
+            border-radius: 9px;
+
+            outline: none;
+
+            font-size: 15px;
+
+            transition: 0.2s;
+        }
+
+
+        .form-group input:focus {
+            border-color: #ff6600;
+
+            box-shadow:
+                0 0 0 3px rgba(255, 102, 0, 0.15);
+        }
+
+
+        /* LOGIN BUTTON */
+
+        .login-button {
+            width: 100%;
+
+            padding: 14px;
+
+            margin-top: 8px;
+
+            border: none;
+
+            border-radius: 9px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #ff7a18,
+                    #ee4d15
+                );
+
+            color: white;
+
+            font-size: 16px;
+
+            font-weight: bold;
+
+            cursor: pointer;
+
+            transition: 0.2s;
+        }
+
+
+        .login-button:hover {
+            transform: translateY(-1px);
+
+            box-shadow:
+                0 8px 20px rgba(238, 77, 21, 0.25);
+        }
+
+
+        /* ERROR MESSAGE */
+
+        .error-message {
+            padding: 12px;
+
+            margin-bottom: 20px;
+
+            border-radius: 8px;
+
+            background: #fff0f0;
+
+            color: #b42318;
+
+            font-size: 14px;
+        }
+
+
+        /* MOBILE RESPONSIVE */
+
+        @media (max-width: 750px) {
+
+            .login-container {
+                grid-template-columns: 1fr;
+
+                margin: 20px 0;
+            }
+
+
+            .brand-section {
+                padding: 30px;
+
+                min-height: 360px;
+            }
+
+
+            .brand-title {
+                font-size: 23px;
+            }
+
+
+            .logo {
+                max-width: 380px;
+            }
+
+
+            .brand-text {
+                font-size: 15px;
+            }
+
+
+            .login-section {
+                padding: 40px 30px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <div class="login-container">
+
+
+        <!-- ========================= -->
+        <!-- LEFT SIDE - BRAND -->
+        <!-- ========================= -->
+
+        <div class="brand-section">
+
+
+            <div>
+
+                <div class="brand-title">
+                    SSS MOBILES
+                </div>
+
+
+                <!-- YOUR SSS MOBILES LOGO -->
+
+                <img
+                    src="/media/branding/logo.jpeg"
+                    alt="SSS Mobiles Logo"
+                    class="logo"
+                >
+
+            </div>
+
+
+            <div class="brand-text">
+
+                <span>ONLY SALES.</span>
+
+                <br>
+
+                Manage your mobile inventory
+                with clarity and confidence.
+
+            </div>
+
+
+        </div>
+
+
+        <!-- ========================= -->
+        <!-- RIGHT SIDE - LOGIN -->
+        <!-- ========================= -->
+
+        <div class="login-section">
+
+
+            <form
+                method="POST"
+                class="login-form"
+            >
+
+                {% csrf_token %}
+
+
+                <h1>
+                    Welcome Back
+                </h1>
+
+
+                <p class="subtitle">
+                    Sign in to manage your mobile inventory.
+                </p>
+
+
+                <!-- DJANGO LOGIN ERROR -->
+
+                {% if form.errors %}
+
+                    <div class="error-message">
+
+                        Username or password is incorrect.
+
+                        Please try again.
+
+                    </div>
+
+                {% endif %}
+
+
+                <!-- USERNAME -->
+
+                <div class="form-group">
+
+                    <label for="id_username">
+                        Username
+                    </label>
+
+
+                    <input
+                        type="text"
+                        id="id_username"
+                        name="username"
+                        placeholder="Enter your username"
+                        autocomplete="username"
+                        autofocus
+                        required
+                    >
+
+                </div>
+
+
+                <!-- PASSWORD -->
+
+                <div class="form-group">
+
+                    <label for="id_password">
+                        Password
+                    </label>
+
+
+                    <input
+                        type="password"
+                        id="id_password"
+                        name="password"
+                        placeholder="Enter your password"
+                        autocomplete="current-password"
+                        required
+                    >
+
+                </div>
+
+
+                <!-- NEXT URL -->
+
+                <input
+                    type="hidden"
+                    name="next"
+                    value="{{ next }}"
+                >
+
+
+                <!-- LOGIN BUTTON -->
+
+                <button
+                    type="submit"
+                    class="login-button"
+                >
+
+                    Sign In
+
+                </button>
+
+
+            </form>
+
+
+        </div>
+
+
+    </div>
+
+
+</body>
+
+</html>
